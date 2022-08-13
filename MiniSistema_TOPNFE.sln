@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniSistema_TOPNFE", "MiniSistema_TOPNFE\MiniSistema_TOPNFE.csproj", "{F491EF67-1576-4161-BCE8-6AD9E6C7173D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F491EF67-1576-4161-BCE8-6AD9E6C7173D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F491EF67-1576-4161-BCE8-6AD9E6C7173D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F491EF67-1576-4161-BCE8-6AD9E6C7173D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F491EF67-1576-4161-BCE8-6AD9E6C7173D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04BDB9D7-74E6-4279-A3A6-C70E298F99B5}
+	EndGlobalSection
+EndGlobal

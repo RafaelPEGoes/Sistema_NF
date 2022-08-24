@@ -18,8 +18,15 @@ namespace MiniSistema_TOPNFE.Controller
 
         public string ConnectionString()
         {
+            
             string connString = @"User=SYSDBA;Password=masterkey;Database=C:\Users\Rafael\Documents\BD_TopNFE\BD.FDB;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType = 0;";
             return connString;
+        }
+
+        public string ConnectionStringCliente()
+        {
+            string connStringCli = @"User=SYSDBA;Password=masterkey;Database=2804:10:8001::209:44:C:\TOPERP\BD\BD.FDB;DataSource=localhost;Port=21;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType = 0;";
+            return connStringCli;
         }
 
       
@@ -44,6 +51,4 @@ namespace MiniSistema_TOPNFE.Controller
 
 
     }
-
-   
 }

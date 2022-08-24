@@ -15,7 +15,7 @@ namespace MiniSistema_TOPNFE
             ApplicationConfiguration.Initialize();
             //Application.Run(new ImpressaoFiscal());
             Application.Run(new ConsultaPedidosView());
-            //Application.Run(new TesteImpressao());
+            //Application.Run(new AlteraInfoPedido());
         }
     }
 }

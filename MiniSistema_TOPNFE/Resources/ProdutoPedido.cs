@@ -10,7 +10,7 @@ namespace MiniSistema_TOPNFE.Resources
     {
         private int id { get; set; }
         private string nome { get; set; }
-        private int quantidade { get; set; }
+        private double quantidade { get; set; }
         private double preco { get; set; }
         private double valorTotal { get; set; }
 
@@ -33,12 +33,12 @@ namespace MiniSistema_TOPNFE.Resources
             return this.nome;
         }
 
-        public void SetQuantidade(int quantidade)
+        public void SetQuantidade(double quantidade)
         {
             this.quantidade = quantidade;
         }
 
-        public int GetQuantidade()
+        public double GetQuantidade()
         {
             return this.quantidade;
         }

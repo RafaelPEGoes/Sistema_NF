@@ -52,6 +52,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.txtValorProdutos = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabelaAddProdutos = new System.Windows.Forms.DataGridView();
             this.colid_prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,8 +78,6 @@
             this.txtReserva = new System.Windows.Forms.TextBox();
             this.txtCodProd = new System.Windows.Forms.TextBox();
             this.btnPesquisaPorNomeID = new System.Windows.Forms.Button();
-            this.txtValorProdutos = new System.Windows.Forms.TextBox();
-            this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -148,6 +148,8 @@
             this.txtIdVendedor.Size = new System.Drawing.Size(73, 27);
             this.txtIdVendedor.TabIndex = 2;
             this.txtIdVendedor.TextChanged += new System.EventHandler(this.txtIdVendedor_TextChanged);
+            this.txtIdVendedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdVendedor_KeyDown);
+            this.txtIdVendedor.Leave += new System.EventHandler(this.txtIdVendedor_Leave);
             // 
             // txtVendedor
             // 
@@ -215,6 +217,7 @@
             this.txtIdCpfCliente.Size = new System.Drawing.Size(154, 27);
             this.txtIdCpfCliente.TabIndex = 4;
             this.txtIdCpfCliente.TextChanged += new System.EventHandler(this.txtIdCpfCliente_TextChanged);
+            this.txtIdCpfCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdCpfCliente_KeyDown);
             // 
             // btnProcessar
             // 
@@ -322,6 +325,21 @@
             this.label3.Text = "Valor dos Produtos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // txtValorTotal
+            // 
+            this.txtValorTotal.Location = new System.Drawing.Point(218, 44);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(210, 27);
+            this.txtValorTotal.TabIndex = 3;
+            // 
+            // txtValorProdutos
+            // 
+            this.txtValorProdutos.Location = new System.Drawing.Point(3, 44);
+            this.txtValorProdutos.Name = "txtValorProdutos";
+            this.txtValorProdutos.Size = new System.Drawing.Size(196, 27);
+            this.txtValorProdutos.TabIndex = 2;
+            this.txtValorProdutos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel5
             // 
@@ -523,6 +541,7 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(125, 27);
             this.txtQuantidade.TabIndex = 13;
+            this.txtQuantidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuantidade_KeyDown);
             // 
             // txtPreco
             // 
@@ -545,6 +564,7 @@
             this.txtCodProd.Size = new System.Drawing.Size(125, 27);
             this.txtCodProd.TabIndex = 8;
             this.txtCodProd.TextChanged += new System.EventHandler(this.txtCodProd_TextChanged);
+            this.txtCodProd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProd_KeyDown);
             // 
             // btnPesquisaPorNomeID
             // 
@@ -555,21 +575,6 @@
             this.btnPesquisaPorNomeID.Text = "Pesquisar";
             this.btnPesquisaPorNomeID.UseVisualStyleBackColor = true;
             this.btnPesquisaPorNomeID.Click += new System.EventHandler(this.btnPesquisaPorNomeID_Click);
-            // 
-            // txtValorProdutos
-            // 
-            this.txtValorProdutos.Location = new System.Drawing.Point(3, 44);
-            this.txtValorProdutos.Name = "txtValorProdutos";
-            this.txtValorProdutos.Size = new System.Drawing.Size(196, 27);
-            this.txtValorProdutos.TabIndex = 2;
-            this.txtValorProdutos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // txtValorTotal
-            // 
-            this.txtValorTotal.Location = new System.Drawing.Point(218, 44);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(210, 27);
-            this.txtValorTotal.TabIndex = 3;
             // 
             // CadastroNovoPedidoView
             // 
@@ -586,6 +591,8 @@
             this.Text = "Novo Pedido";
             this.Load += new System.EventHandler(this.CadastroNovoPedidoView_Load);
             this.Shown += new System.EventHandler(this.CadastroNovoPedidoView_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CadastroNovoPedidoView_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CadastroNovoPedidoView_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

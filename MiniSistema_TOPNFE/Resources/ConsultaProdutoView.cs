@@ -20,7 +20,7 @@ namespace MiniSistema_TOPNFE.Resources
             using (FbConnection conn = dbf.GetConnection())
             {
                 conn.Open();
-                string query = $"SELECT CODIGO_PRODUTO, CODIGO_BARRA, REFERENCIA, DESCRICAO FROM PRODUTO WHERE CODIGO_PRODUTO LIKE '{Int32.Parse(GettxtDescCodCodBarrasText())}%';";
+                string query = $"SELECT CODIGO_PRODUTO, CODIGO_BARRA, REFERENCIA, DESCRICAO FROM PRODUTO WHERE CODIGO_PRODUTO LIKE '{long.Parse(GettxtDescCodCodBarrasText())}%' OR (CODIGO_BARRA LIKE '{long.Parse(txtDescCodCodBarras.Text)}%');";
 
                 using (FbCommand cmd = new FbCommand(query, conn))
                 {
@@ -121,7 +121,9 @@ namespace MiniSistema_TOPNFE.Resources
 
         private void txtDescCodCodBarras_TextChanged(object sender, EventArgs e)
         {
-            if (Int32.TryParse(GettxtDescCodCodBarrasText(), out int id))
+            if (long.TryParse(GettxtDescCodCodBarrasText(), out long cod
+                
+                ))
             {
                 PesquisaProdutoPorIDOuCodigoDeBarras();
 
@@ -144,7 +146,7 @@ namespace MiniSistema_TOPNFE.Resources
 
         }
 
-        private void tabelaConsultaProduto_KeyPressed(object sender, KeyEventArgs e)
+        private void tabelaConsultaProduto_KeyPress(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -154,7 +156,7 @@ namespace MiniSistema_TOPNFE.Resources
 
         private void tabelaConsultaProduto_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyValue == 13)
+            if(e.KeyCode == Keys.Enter)
             {
                 PassarInformacoesParaTelaNovoPedido();
             }
@@ -164,7 +166,9 @@ namespace MiniSistema_TOPNFE.Resources
         {
 
             Produto prod = new Produto();
-            prod.SetID(Int32.Parse(tabelaConsultaProduto.CurrentCell.Value.ToString()));
+            //consertar, esta dando null reference;
+            prod.SetID(Int32.Parse(tabelaConsultaProduto.CurrentRow.Cells["col_ID"].Value.ToString()));
+            //prod.SetID(Int32.Parse(tabelaConsultaProduto.CurrentCell.Value.ToString()));
             return prod;
 
         }

@@ -38,7 +38,7 @@
             this.lblOrdenacao = new System.Windows.Forms.Label();
             this.cbOrdenaPor = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cbSituacao = new System.Windows.Forms.ComboBox();
@@ -153,6 +153,7 @@
             this.btnPesquisa.TabIndex = 13;
             this.btnPesquisa.Text = "Buscar";
             this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // lblOrdenacao
             // 
@@ -187,7 +188,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnAlterar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -197,15 +198,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(187, 87);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
-            // button3
+            // btnAlterar
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(96, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 81);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Alterar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAlterar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAlterar.Location = new System.Drawing.Point(96, 3);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(88, 81);
+            this.btnAlterar.TabIndex = 14;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // button1
             // 
@@ -282,6 +284,7 @@
             this.txtVendedor.Name = "txtVendedor";
             this.txtVendedor.Size = new System.Drawing.Size(237, 27);
             this.txtVendedor.TabIndex = 3;
+            this.txtVendedor.TextChanged += new System.EventHandler(this.txtVendedor_TextChanged);
             // 
             // Vendedor
             // 
@@ -356,6 +359,7 @@
             // tabelaConsultaPedido
             // 
             this.tabelaConsultaPedido.AllowUserToAddRows = false;
+            this.tabelaConsultaPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tabelaConsultaPedido.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.tabelaConsultaPedido.ColumnHeadersHeight = 29;
             this.tabelaConsultaPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -375,7 +379,6 @@
             this.tabelaConsultaPedido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabelaConsultaPedido.Location = new System.Drawing.Point(0, 0);
             this.tabelaConsultaPedido.Name = "tabelaConsultaPedido";
-            this.tabelaConsultaPedido.ReadOnly = true;
             this.tabelaConsultaPedido.RowHeadersVisible = false;
             this.tabelaConsultaPedido.RowHeadersWidth = 51;
             this.tabelaConsultaPedido.RowTemplate.Height = 29;
@@ -383,87 +386,70 @@
             this.tabelaConsultaPedido.Size = new System.Drawing.Size(1901, 965);
             this.tabelaConsultaPedido.TabIndex = 0;
             this.tabelaConsultaPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.tabelaConsultaPedido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabelaConsultaPedido_KeyDown);
             // 
             // colCidade
             // 
             this.colCidade.HeaderText = "Cidade";
             this.colCidade.MinimumWidth = 6;
             this.colCidade.Name = "colCidade";
-            this.colCidade.ReadOnly = true;
             this.colCidade.Visible = false;
-            this.colCidade.Width = 200;
             // 
             // colNumero
             // 
             this.colNumero.HeaderText = "Número";
             this.colNumero.MinimumWidth = 6;
             this.colNumero.Name = "colNumero";
-            this.colNumero.ReadOnly = true;
             this.colNumero.Visible = false;
-            this.colNumero.Width = 80;
             // 
             // colTipo
             // 
             this.colTipo.HeaderText = "Tipo";
             this.colTipo.MinimumWidth = 6;
             this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
             this.colTipo.Visible = false;
-            this.colTipo.Width = 125;
             // 
             // colSituacao
             // 
             this.colSituacao.HeaderText = "Confirmado";
             this.colSituacao.MinimumWidth = 6;
             this.colSituacao.Name = "colSituacao";
-            this.colSituacao.ReadOnly = true;
             this.colSituacao.Visible = false;
-            this.colSituacao.Width = 90;
             // 
             // colFaturado
             // 
             this.colFaturado.HeaderText = "Faturado";
             this.colFaturado.MinimumWidth = 6;
             this.colFaturado.Name = "colFaturado";
-            this.colFaturado.ReadOnly = true;
             this.colFaturado.Visible = false;
-            this.colFaturado.Width = 80;
             // 
             // colEstoqueSeparado
             // 
             this.colEstoqueSeparado.HeaderText = "Est. Separado";
             this.colEstoqueSeparado.MinimumWidth = 6;
             this.colEstoqueSeparado.Name = "colEstoqueSeparado";
-            this.colEstoqueSeparado.ReadOnly = true;
             this.colEstoqueSeparado.Visible = false;
-            this.colEstoqueSeparado.Width = 80;
             // 
             // colData
             // 
             this.colData.HeaderText = "Data";
             this.colData.MinimumWidth = 6;
             this.colData.Name = "colData";
-            this.colData.ReadOnly = true;
             this.colData.Visible = false;
-            this.colData.Width = 200;
             // 
             // colVendedor
             // 
             this.colVendedor.HeaderText = "Vendedor";
             this.colVendedor.MinimumWidth = 6;
             this.colVendedor.Name = "colVendedor";
-            this.colVendedor.ReadOnly = true;
             this.colVendedor.Visible = false;
-            this.colVendedor.Width = 150;
             // 
             // colIdCliente
             // 
             this.colIdCliente.HeaderText = "ID Cliente";
             this.colIdCliente.MinimumWidth = 6;
             this.colIdCliente.Name = "colIdCliente";
-            this.colIdCliente.ReadOnly = true;
             this.colIdCliente.Visible = false;
-            this.colIdCliente.Width = 80;
             // 
             // colCliente
             // 
@@ -471,7 +457,6 @@
             this.colCliente.HeaderText = "Cliente";
             this.colCliente.MinimumWidth = 6;
             this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
             this.colCliente.Visible = false;
             // 
             // colTotal
@@ -479,9 +464,7 @@
             this.colTotal.HeaderText = "Total";
             this.colTotal.MinimumWidth = 6;
             this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
             this.colTotal.Visible = false;
-            this.colTotal.Width = 170;
             // 
             // menuContexto
             // 
@@ -507,7 +490,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ConsultaPedidosView";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.ConsultaPedidosView_PreviewKeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -540,7 +523,7 @@
         private Panel panel2;
         private DataGridView tabelaConsultaPedido;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button3;
+        private Button btnAlterar;
         private Button btnPesquisa;
         private Button button1;
         private Label lblOrdenacao;

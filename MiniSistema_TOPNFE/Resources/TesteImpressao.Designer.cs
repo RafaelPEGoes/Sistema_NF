@@ -66,6 +66,7 @@
             this.Controls.Add(this.btnImprimir);
             this.Name = "TesteImpressao";
             this.Text = "TesteImpressao";
+            this.Load += new System.EventHandler(this.TesteImpressao_Load);
             this.ResumeLayout(false);
 
         }

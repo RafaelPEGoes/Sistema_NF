@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Globalization;
+using FirebirdSql.Data.FirebirdClient;
+using MiniSistema_TOPNFE.Controller;
 
 namespace MiniSistema_TOPNFE.Resources
 {
@@ -53,15 +55,29 @@ namespace MiniSistema_TOPNFE.Resources
 
         public string[] textoCabecalho(string[] array)
         {
-
-            //funcao para criar o texto de cabeçalho da impressão
-
             string[] texto = new string[4];
 
-            texto[0] = "RAZÃO SOCIAL";
-            texto[1] = "NOME FANTASIA";
-            texto[2] = "ENDEREÇO";
-            texto[3] = "CNPJ: 00.000.000 / 0000 - 00 IE: 0000000000";
+            DBFactory dbf = new DBFactory();
+            using (FbConnection conn = dbf.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT NOME, FANTASIA, ENDERECO, NUMERO, CNPJ FROM FILIAL";
+
+                using (FbCommand cmd = new FbCommand(query, conn))
+                {
+                    using (FbDataReader reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            texto[0] = reader.GetString(0);
+                            texto[1] = reader.GetString(1);
+                            texto[2] = $"{reader.GetString(2)}, {reader.GetString(3)}";
+                            texto[3] = reader.GetString(4);
+
+                        }
+                    }
+                }
+            }
 
             texto.CopyTo(array, 0);
             return array;
@@ -330,7 +346,10 @@ namespace MiniSistema_TOPNFE.Resources
             return lista;
         }
 
+        private void TesteImpressao_Load(object sender, EventArgs e)
+        {
 
+        }
     }
     //public List<ProdutoPedido> ListaParaImpressao2(string str)
     //{
